@@ -2,7 +2,7 @@
 
 const StellarSdk = require('stellar-sdk')
 
-// instantiate the server.
+// Instantiate the server.
 const server = new StellarSdk.Server('https://horizon-testnet.stellar.org')
 
-export { server }
+module.exports = { server }

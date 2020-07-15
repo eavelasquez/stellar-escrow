@@ -3,6 +3,7 @@
 const inquirer = require('inquirer')
 const { createEscrow } = require('./functions/alice/create-escrow')
 const { fundEscrow } = require('./functions/alice/fund-escrow')
+const { setMultiSig } = require('./functions/alice/set-multisig')
 
 inquirer
   .prompt([
@@ -20,7 +21,7 @@ inquirer
           type: 'list',
           name: 'action',
           message: 'What do you want to do?',
-          choices: ['Create Escrow', 'Fund Escrow']
+          choices: ['Create Escrow', 'Fund Escrow', 'Set Multisig']
         }
       ]).then(async (answers) => {
         if (answers.action === 'Create Escrow') {
@@ -28,6 +29,9 @@ inquirer
         }
         if (answers.action === 'Fund Escrow') {
           fundEscrow()
+        }
+        if (answers.action === 'Set Multisig') {
+          setMultiSig()
         }
       }).catch((error) => {
         console.log(error)

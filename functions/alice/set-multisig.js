@@ -39,7 +39,7 @@ async function setMultiSig () {
     .addOperation(StellarSdk.Operation.setOptions({
       masterWeight: 0, // Escrow account has a master weight of 0.
       lowThreshold: 1,
-      medThreshold: 2,  // Payment is medium-weighted.
+      medThreshold: 2, // Payment is medium-weighted.
       highThreshold: 2
     }))
     .addOperation(StellarSdk.Operation.setOptions(aliceSigner))

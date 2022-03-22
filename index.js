@@ -1,6 +1,7 @@
 'use strict'
 
 const inquirer = require('inquirer')
+
 const { createEscrow } = require('./functions/alice/create-escrow')
 const { fundEscrow } = require('./functions/alice/fund-escrow')
 const { setMultiSig } = require('./functions/alice/set-multisig')
@@ -43,7 +44,7 @@ inquirer
           signFunds()
         }
       }).catch((error) => {
-        console.log(error)
+        console.error(error)
       })
     } else {
       inquirer.prompt([
@@ -58,10 +59,10 @@ inquirer
           withdraw()
         }
       }).catch((error) => {
-        if (error.isTtyError) {} else {}
+        console.error(error)
       })
     }
   })
   .catch((error) => {
-    console.log(error)
+    console.error(error)
   })
